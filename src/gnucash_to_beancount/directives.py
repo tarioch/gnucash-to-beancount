@@ -86,6 +86,12 @@ def sanitize_name(name):
     name = name.replace('+', 'plus')
     name = name.replace('?', 'q')
     name = name.replace('¢', 'cent')
+    name = name.replace('ä', 'a')
+    name = name.replace('Ä', 'A')
+    name = name.replace('ö', 'o')
+    name = name.replace('Ö', 'O')
+    name = name.replace('ü', 'u')
+    name = name.replace('Ü', 'U')
 
     name = name.replace("'", '')  # Joe's -> Joes
     name = name.replace('(', '')
@@ -133,6 +139,7 @@ def commodity_name(commodity):
     """Returns a valid Beancount commodity name for a Gnucash commodity"""
 
     name = sanitize_name(commodity.mnemonic)
+    name = name.replace(':', '')
 
     # According to the documentation
     # name can be up to 24 characters long, beginning with a capital letter and ending with a capital letter or a number.
