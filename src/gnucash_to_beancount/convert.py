@@ -19,7 +19,7 @@ def load_entries(book):
     entries = []
 
     for account in book.accounts:
-        if account.fullname in ACCOUNT_TYPES or account.placeholder:
+        if account.fullname in ACCOUNT_TYPES:
             continue
 
         entries.append(Open(account, first_date))
